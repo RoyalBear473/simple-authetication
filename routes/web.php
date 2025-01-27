@@ -34,5 +34,5 @@ Route::prefix('register')->middleware('guest')->group(function () {
 });
 Route::prefix('content')->middleware('auth')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
-    Route::resource('user', UserController::class);
+    Route::resource('user', UserController::class)->middleware('role:admin');
 });
